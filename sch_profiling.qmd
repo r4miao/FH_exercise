@@ -7,31 +7,28 @@ warning: false
 message: false
 ---
 
- 
-
 ```{r}
 # Load necessary libraries
 library(kableExtra)
 
-# Create the data frame
+# Create the data frame for the table
 data <- data.frame(
-  Category = c("Race", "", "First Generation College", "", "Ever Taken DevEd Courses", "", "Average GPA"),
-  Subgroup = c("Non-white", "White", "No", "Yes", "No", "Yes", "Average GPA"),
-  Augustine_University = c("25%", "75%", "100%", "-", "25%", "75%", "3.41"),
-  Julias_University = c("57%", "43%", "86%", "14%", "43%", "57%", "2.61"),
-  University_of_Dream = c("75%", "25%", "50%", "50%", "50%", "50%", "3.08")
+  Category = c("College Retention", "No", "Yes", "Race/ethnicity", "Non-white", "White", 
+               "First Generation College", "No", "Yes", "Ever Taken DevEd Courses", "No", "Yes", "Average GPA"),
+  Augustine_University = c("", "50%", "50%", "", "25%", "75%", "", "100%", "-", "", "25%", "75%", "3.41"),
+  Julias_University = c("", "86%", "14%", "", "57%", "43%", "", "86%", "14%", "", "43%", "57%", "2.61"),
+  University_of_Dream = c("", "50%", "50%", "", "75%", "25%", "", "50%", "50%", "", "50%", "50%", "3.08")
 )
 
 # Add a footnote for empty cells
 footnote_text <- "- Empty cell due to insufficient data."
 
 # Create and format the table
-kable(data, col.names = c("", "Subgroup", "Augustine University (1)", 
-                          "Julias University (2)", "University of Dream (3)"),
+kable(data, col.names = c("", "Augustine University (1)", "Julias University (2)", "University of Dream (3)"),
       caption = "Student characteristics by school.") %>%
-  kable_styling(full_width = FALSE) %>%
-  row_spec(0, bold = TRUE) %>%  # Bold headers
+  kable_styling(full_width = FALSE, position = "left") %>%
+  row_spec(0, bold = TRUE) %>%  # Bold header row
+  add_header_above(c(" " = 1, "Schools" = 3)) %>%  # Add "Schools" header above universities
   footnote(general = footnote_text, general_title = "Note: ")
-```
 
- 
+```
