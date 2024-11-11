@@ -1,0 +1,48 @@
+---
+title: "Stata code generating an indicator for first generation college status"
+author: "ML"
+format: html
+editor: visual
+output-file: "FGC_stata_coding.html"
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(Statamarkdown)
+```
+
+-   Primary definition: None of the parents have a bachelor's degree (but may have some college experience)
+
+```{stata}
+#| results: hide
+gen first_gen1 = (parent1 <= 2 & parent2 <= 2)  
+label var first_gen1 "First-generation college status (Yes/No)"
+
+```
+
+(Note: this is the definition used in analysis)
+
+<br>
+
+-   Alternative definition: All parents have high school or lower education (not even some college experience)
+
+```{stata}
+#| results: hide
+gen first_gen2 = (parent1 == 1 & parent2 == 1)  
+label var first_gen2 "First-generation college status_alt"
+
+```
+
+(Note: This more stringent definition resulted in a smaller sample size for first-generation student)
+
+<br>
+
+-   Label values of both versions of the variable
+
+```{stata}
+#| results: hide
+label define yesno 0 "No" 1 "Yes"
+label val first_gen1 first_gen2 yesno
+```
