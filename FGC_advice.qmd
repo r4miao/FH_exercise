@@ -16,7 +16,7 @@ The First-Generation College (FGC) Indicator is constructed using both parents' 
 
     2)  **Define parent education threshold**. In this analysis, FGC status is defined as neither parent having completed a college degree, even if one or both took some college courses (without earning a degree). Alternatively, FGC status could be defined more strictly as neither parent having taken any college level courses at all (see suggestion for Sensitivity Analysis below). This stricter definition would likely reduce the number of FGC students in the sample.
 
--   https://github.com/r4miao/FH_excercise.git
+-  
 
     3)  **Check for Missing Data of `parent1` and `parent2`**. If both parents' data are missing, FGC status is set to missing. If data for only one parent is missing, FGC is defined as 'No' if the available parent has completed college. If the available parent has not completed college, FGC status remains missing. For sensitivity analysis, we suggest defining FGC status based on any available parent education data, regardless of whether the available parent completed college. In this analysis, we did not perform a sensitivity analysis because only one individual had a parent with missing education data, and the available parent held a post-graduate degree, making FGC classification straightforward.
 
