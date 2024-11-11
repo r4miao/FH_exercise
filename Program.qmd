@@ -1,6 +1,5 @@
 ---
 title: "Stata code generating an indicator for first generation college status"
-author: "ML"
 format: html
 editor: visual
 output-file: "FGC_stata_coding.html"
@@ -13,7 +12,7 @@ output-file: "FGC_stata_coding.html"
 library(Statamarkdown)
 ```
 
--   Primary definition: None of the parents have a bachelor's degree (but may have some college experience)
+-   **Primary definition**: None of the parents have a bachelor's degree (but may have some college experience)
 
 ```{stata}
 #| results: hide
@@ -22,11 +21,11 @@ label var first_gen1 "First-generation college status (Yes/No)"
 
 ```
 
-(Note: this is the definition used in analysis)
+[(Note: this is the definition used in analysis) ]{style="color: red"}
 
 <br>
 
--   Alternative definition: All parents have high school or lower education (not even some college experience)
+-   **Alternative definition**: All parents have high school or lower education (not even some college experience)
 
 ```{stata}
 #| results: hide

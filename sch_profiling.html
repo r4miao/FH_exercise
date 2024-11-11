@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Stata code generating an indicator for first generation college status</title>
+<title>Student characteristics by school</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,53 +20,21 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="Program_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Program_files/libs/quarto-html/quarto.js"></script>
-<script src="Program_files/libs/quarto-html/popper.min.js"></script>
-<script src="Program_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Program_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Program_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Program_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Program_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Program_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Program_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="sch_profiling_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sch_profiling_files/libs/quarto-html/quarto.js"></script>
+<script src="sch_profiling_files/libs/quarto-html/popper.min.js"></script>
+<script src="sch_profiling_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sch_profiling_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sch_profiling_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sch_profiling_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="sch_profiling_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sch_profiling_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sch_profiling_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="sch_profiling_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="sch_profiling_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -79,7 +47,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Stata code generating an indicator for first generation college status</h1>
+<h1 class="title">Student characteristics by school</h1>
 </div>
 
 
@@ -96,30 +64,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<ul>
-<li><strong>Primary definition</strong>: None of the parents have a bachelor’s degree (but may have some college experience)</li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> first_gen1 = (parent1 &lt;= 2 &amp; parent2 &lt;= 2)  </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> first_gen1 <span class="st">"First-generation college status (Yes/No)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Student characteristics by school.</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Subgroup</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Augustine University (1)</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Julias University (2)</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">University of Dream (3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Race</td>
+<td style="text-align: left;">Non-white</td>
+<td style="text-align: left;">25%</td>
+<td style="text-align: left;">57%</td>
+<td style="text-align: left;">75%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">White</td>
+<td style="text-align: left;">75%</td>
+<td style="text-align: left;">43%</td>
+<td style="text-align: left;">25%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">First Generation College</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">100%</td>
+<td style="text-align: left;">86%</td>
+<td style="text-align: left;">50%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">14%</td>
+<td style="text-align: left;">50%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ever Taken DevEd Courses</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">25%</td>
+<td style="text-align: left;">43%</td>
+<td style="text-align: left;">50%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">75%</td>
+<td style="text-align: left;">57%</td>
+<td style="text-align: left;">50%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Average GPA</td>
+<td style="text-align: left;">Average GPA</td>
+<td style="text-align: left;">3.41</td>
+<td style="text-align: left;">2.61</td>
+<td style="text-align: left;">3.08</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> - Empty cell due to insufficient data.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
 </div>
-<p><span style="color: red">(Note: this is the definition used in analysis)</span></p>
-<p><br></p>
-<ul>
-<li><strong>Alternative definition</strong>: All parents have high school or lower education (not even some college experience)</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> first_gen2 = (parent1 == 1 &amp; parent2 == 1)  </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> first_gen2 <span class="st">"First-generation college status_alt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>(Note: This more stringent definition resulted in a smaller sample size for first-generation student)</p>
-<p><br></p>
-<ul>
-<li>Label values of both versions of the variable</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">define</span> yesno 0 <span class="st">"No"</span> 1 <span class="st">"Yes"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> val first_gen1 first_gen2 yesno</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </main>

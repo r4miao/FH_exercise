@@ -1,0 +1,37 @@
+---
+title: "Student characteristics by school"
+format: html
+editor: visual
+echo: false
+warning: false
+message: false
+---
+
+ 
+
+```{r}
+# Load necessary libraries
+library(kableExtra)
+
+# Create the data frame
+data <- data.frame(
+  Category = c("Race", "", "First Generation College", "", "Ever Taken DevEd Courses", "", "Average GPA"),
+  Subgroup = c("Non-white", "White", "No", "Yes", "No", "Yes", "Average GPA"),
+  Augustine_University = c("25%", "75%", "100%", "-", "25%", "75%", "3.41"),
+  Julias_University = c("57%", "43%", "86%", "14%", "43%", "57%", "2.61"),
+  University_of_Dream = c("75%", "25%", "50%", "50%", "50%", "50%", "3.08")
+)
+
+# Add a footnote for empty cells
+footnote_text <- "- Empty cell due to insufficient data."
+
+# Create and format the table
+kable(data, col.names = c("", "Subgroup", "Augustine University (1)", 
+                          "Julias University (2)", "University of Dream (3)"),
+      caption = "Student characteristics by school.") %>%
+  kable_styling(full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) %>%  # Bold headers
+  footnote(general = footnote_text, general_title = "Note: ")
+```
+
+ 
